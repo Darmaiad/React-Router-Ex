@@ -1,7 +1,7 @@
 import React from 'react';
 //import ReactDOM from 'react-dom';
-import Header from './Header'
-import Main from './Main'
+import Header from './AppChildren/Header'
+import Main from './AppChildren/Main'
 
 
 // this component will be rendered by our <BrowserRouter>

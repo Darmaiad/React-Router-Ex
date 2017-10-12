@@ -3,6 +3,7 @@ import { Switch, Route } from 'react-router-dom'
 import Home from './MainChildren/Home'
 import Roster from './MainChildren/Roster'
 import Schedule from './MainChildren/Schedule'
+import NoMatch from './NoMatch'
 //import ReactDOM from 'react-dom';
 
 const Main = () => (
@@ -11,6 +12,7 @@ const Main = () => (
             <Route exact path='/' component={Home}/>
             <Route path='/roster' component={Roster}/>
             <Route path='/schedule' component={Schedule}/>
+            <Route component={NoMatch}/>
         </Switch>
     </main>
 )
