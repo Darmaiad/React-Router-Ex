@@ -1,27 +1,31 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
-//import FullRosterContainer from './RosterChildren/FullRosterContainer';
-import PlayerContainer from './RosterChildren/PlayerContainer';
 import FullRosterToBeWrapped from './RosterChildren/FullRosterToBeWrapped';
-import PlayerAPI from '../../../data/PlayerApi';
+import PlayerToBeWrapped from './RosterChildren/PlayerToBeWrapped';
 import RosterHOC from './RosterHOC';
+import PlayerAPI from '../../../data/PlayerApi';
 
 
-const Roster = () => {
+const Roster = (props) => {
 
     const RosterWrapped = RosterHOC (
         FullRosterToBeWrapped,
-        (PlayerAPI) => PlayerAPI.all()
+        PlayerAPI.all.bind(PlayerAPI)
+    );
+
+    const PlayerWrapped = RosterHOC (
+        PlayerToBeWrapped,
+        PlayerAPI.get.bind(PlayerAPI)
     );
 
     return (
-    <div>
-        <h2>Roster Page</h2>
-        <Switch>
-            <Route exact path='/roster' component={RosterWrapped}/>
-            <Route path='/roster/:number' component={PlayerContainer}/>
-        </Switch>
-    </div>
+        <div>
+            <h2>Roster Page</h2>
+            <Switch>
+                <Route exact path='/roster' component={RosterWrapped}/>
+                <Route path='/roster/:number' component={PlayerWrapped}/>
+            </Switch>
+        </div>
     )
 }
 

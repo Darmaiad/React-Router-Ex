@@ -1,9 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import FullRoster from './FullRoster';
-import PlayerAPI from '../../../../data/PlayerApi';
 
-class FullRosterToBeWrapped extends React.Component 
+export default class FullRosterToBeWrapped extends React.Component 
 {
     constructor(props) 
     {
@@ -27,17 +26,5 @@ class FullRosterToBeWrapped extends React.Component
     render() 
     {
         return <FullRoster players={this.state.players} />
-
-        // return (
-        //     <div> 
-        //         <ul>
-        //             {this.state.players}  
-        //         </ul>
-        //     </div>
-        // )
-    }
-      
-    
+    }   
 }
-
-export default FullRosterToBeWrapped;

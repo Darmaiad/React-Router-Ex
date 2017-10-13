@@ -1,12 +1,7 @@
 import React from 'react';
-
 import PlayerAPI from '../../../data/PlayerApi';
 
-
-import FullRosterContainer from './RosterChildren/FullRosterContainer';
-import PlayerContainer from './RosterChildren/PlayerContainer';
-
-function RosterHOC(ComponentToWrap, dataToRetrieve)
+export default function RosterHOC(ComponentToWrap, dataRetrievalFunc)
 {
     return class extends React.Component 
     {
@@ -14,7 +9,7 @@ function RosterHOC(ComponentToWrap, dataToRetrieve)
         {
             super(props);
             this.state = {
-                data: dataToRetrieve(PlayerAPI, props)
+                data: dataRetrievalFunc(parseInt(this.props.match.params.number, 10))
             }
         };
 
@@ -22,10 +17,7 @@ function RosterHOC(ComponentToWrap, dataToRetrieve)
         {
             // ... and renders the wrapped component with the fresh data!
             // Notice that we pass through any additional props
-            return <ComponentToWrap data={this.state.data}  />;
+            return <ComponentToWrap data={this.state.data}   />;
         }
     }
 }
-
-export default RosterHOC;
-
