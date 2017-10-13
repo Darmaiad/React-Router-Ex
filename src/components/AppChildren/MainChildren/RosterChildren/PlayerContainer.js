@@ -16,12 +16,13 @@ class PlayerContainer extends React.Component
           parseInt(this.props.match.params.number, 10)
       )
       
-      this.setState({player: player });
+      //this.setState({player: player });
+      this.setState( () => ({player}) );
     }
   
     render() 
     {
-      return <Player player={this.state.player} />
+      return <Player player = {this.state.player} />
     }
   }
 

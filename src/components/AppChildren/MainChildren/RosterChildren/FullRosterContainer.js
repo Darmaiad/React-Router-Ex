@@ -20,6 +20,7 @@ class FullRosterContainer extends React.Component
         ));
         
         this.setState({players: players });
+        
     }
   
     render() 
