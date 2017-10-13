@@ -15,9 +15,9 @@ export default class FullRosterToBeWrapped extends React.Component
     componentDidMount() 
     {
         const thePlayers = this.props.data.map(p => (
-        <li key={p.number}>
-            <Link to={`/roster/${p.number}`}>{p.name}</Link>
-        </li>
+            <li key={p.number}>
+                <Link to={`/roster/${p.number}`}>{p.name}</Link>
+            </li>
         ));
         
         this.setState({players: thePlayers });

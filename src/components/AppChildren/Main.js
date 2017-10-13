@@ -1,10 +1,24 @@
+/**
+ * Project from here: https://medium.com/@pshrmn/a-simple-react-router-v4-tutorial-7f23ff27adf
+ * 
+ * Implemented Container / Presenter Pattern
+ *      - FullRosterContainer
+ *      - PlayerContainer
+ * 
+ * Implemented Higher Order Component Pattern
+ *      - RosterHOC
+ *      - FullRosterToBeWrapped
+ *      - PlayerToBeWrapped
+ *      Basically the HOC generated container components that replaces the previous ones.
+ *      Passed function literals instead of data to the HOC-generated components.
+ */
+
 import React from 'react';
 import { Switch, Route } from 'react-router-dom'
 import Home from './MainChildren/Home'
 import Roster from './MainChildren/Roster'
 import Schedule from './MainChildren/Schedule'
 import NoMatch from './NoMatch'
-//import ReactDOM from 'react-dom';
 
 const Main = () => (
     <main>
