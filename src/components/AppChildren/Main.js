@@ -20,15 +20,20 @@ import Roster from './MainChildren/Roster'
 import Schedule from './MainChildren/Schedule'
 import NoMatch from './NoMatch'
 
-const Main = () => (
-    <main>
-        <Switch>
-            <Route exact path='/' component={Home}/>
-            <Route path='/roster' component={Roster}/>
-            <Route path='/schedule' component={Schedule}/>
-            <Route component={NoMatch}/>
-        </Switch>
-    </main>
-)
+const Main = (props) => {
+
+    return (
+
+        <main>
+            <Switch>
+                <Route exact path='/' component={Home} />
+                <Route path='/roster' component={Roster} />
+                <Route path='/schedule' component={Schedule} />
+                <Route component={NoMatch} />
+            </Switch>
+        </main>
+
+    );
+}
 
 export default Main;

@@ -1,5 +1,5 @@
-import ActionTypes from './ActionTypes';
 import FootballDispatcher from './FootballDispatcher';
+import FootballActionTypes from './FootballActionTypes';
 
 const FootballActions = {
     insertPlayer(text) {
