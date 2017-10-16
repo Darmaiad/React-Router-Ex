@@ -1,7 +1,7 @@
 import { ReduceStore } from 'flux/utils';
 import FootballActionTypes from './FootballActionTypes';
 import FootballDispatcher from './FootballDispatcher';
-import PlayerModel from './PlayerModel';
+//import PlayerModel from './PlayerModel';
 import Counter from './Counter';
 
 class FootballStore extends ReduceStore {
@@ -10,7 +10,7 @@ class FootballStore extends ReduceStore {
     }
 
     getInitialState() {
-        return [];
+        return {};
     }
 
     reduce(state, action) {
@@ -18,18 +18,24 @@ class FootballStore extends ReduceStore {
 
             case FootballActionTypes.INSERT_PLAYER:
 
+                console.log('----------------------------');
+                console.log(state);
+                console.log(action);
+                console.log('----------------------------');
+
                 // Don't add Players with no text.
                 if (!action.text) {
                     return state;
                 }
 
                 const id = Counter.increment();
-                return state.push(new PlayerModel({
+                return ({
                     id,
                     number: 111,
                     name: action.text,
                     position: "QB",
-                }));
+                });
+                
                 
 
             default:

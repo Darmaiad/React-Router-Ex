@@ -1,6 +1,7 @@
 import { Container } from 'flux/utils';
 import FootballStore from './../data/FootballStore'
-import App from './../components/App';
+//import App from './../components/App';
+import AppRoutingWrapper from './../components/AppRoutingWrapper';
 
 function getStores() {
     return [
@@ -9,9 +10,9 @@ function getStores() {
 }
 
 function getState() {
-    return {
-        players: FootballStore.getState(),
-    };
+
+    return FootballStore.getState();
+    
 }
 
-export default Container.createFunctional(App, getStores, getState);
+export default Container.createFunctional(AppRoutingWrapper, getStores, getState);
