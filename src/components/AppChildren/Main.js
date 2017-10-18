@@ -22,12 +22,15 @@ import NoMatch from './NoMatch'
 
 const Main = (props) => {
 
+    
+
     return (
 
         <main>
             <Switch>
                 <Route exact path='/' component={Home} />
-                <Route path='/roster' component={Roster} />
+                {/* <Route  path='/roster' component={Roster} /> */}
+                <Route  path='/roster' render={()=><Roster {...props}/>} />
                 <Route path='/schedule' component={Schedule} />
                 <Route component={NoMatch} />
             </Switch>

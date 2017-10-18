@@ -10,10 +10,16 @@ export default class FullRosterToBeWrapped extends React.Component
         this.state = {
             players: null,
         };
+
+        console.log("Full Roster to be wrapped");
+        console.log(this.props);
+        
     }
 
     componentDidMount() 
     {
+
+        console.log(this.props);
         const players = this.props.data.map(p => (
             <li key={p.number}>
                 <Link to={`/roster/${p.number}`}>{p.name}</Link>
@@ -39,6 +45,6 @@ export default class FullRosterToBeWrapped extends React.Component
   
     render() 
     {
-        return <FullRoster players={this.state.players} />
+        return <FullRoster players2={this.state.players} {...this.props} />
     }   
 }

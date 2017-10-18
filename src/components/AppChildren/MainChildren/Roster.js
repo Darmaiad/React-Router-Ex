@@ -8,14 +8,18 @@ import PlayerAPI from '../../../data/PlayerApi';
 
 const Roster = (props) => {
 
+    //console.log(props);
+
     const RosterWrapped = RosterHOC (
         FullRosterToBeWrapped,
-        PlayerAPI.all.bind(PlayerAPI)
+        PlayerAPI.all.bind(PlayerAPI),
+        props
     );
 
     const PlayerWrapped = RosterHOC (
         PlayerToBeWrapped,
-        PlayerAPI.get.bind(PlayerAPI)
+        PlayerAPI.get.bind(PlayerAPI),
+        props
     );
 
     return (
@@ -23,6 +27,8 @@ const Roster = (props) => {
             <h2>Roster Page</h2>
             <Switch>
                 <Route exact path='/roster' component={RosterWrapped}/>
+                {/* <Route exact path='/roster' render={()=><RosterWrapped {...props} />}/> */}
+                
                 <Route path='/roster/:number' component={PlayerWrapped}/>
             </Switch>
         </div>
