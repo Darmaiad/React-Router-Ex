@@ -19,9 +19,7 @@ class FootballStore extends ReduceStore {
         switch (action.type) {
 
             case FootballActionTypes.INSERT_PLAYER:
-
-                
-
+            
                 // Don't add Players with no text.
                 if (!action.text) {
                     return state;

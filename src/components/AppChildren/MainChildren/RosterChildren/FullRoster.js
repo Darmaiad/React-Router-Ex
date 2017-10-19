@@ -7,15 +7,16 @@ class FullRoster extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      value: ''
+      value: '',
+      players: this.props.players
     };
-
-    //console.log(props);
+      console.log("Full roster props")
+      console.log(this.props);
   }
 
   handleClickFromChild = () => {
-    alert("form submitted");
-    //console.log(this.props);
+    // console.log("Full roster state")
+    // console.log(this.state);
     this.props.onItemAdd(this.state.value);
   }
 
@@ -32,7 +33,7 @@ class FullRoster extends React.Component {
           onChange={this.handleChangeFromChild}
         />
         <ul>
-        {this.props.players2}
+        {this.props.players}
         </ul>
         {/* <ul key={}>
           {this.props.players}
