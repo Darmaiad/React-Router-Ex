@@ -2,32 +2,35 @@ import React from 'react';
 
 const NewItem = (props) => {
 
-    const handleClick = () => {
-        props.onClick();
-        //console.log(this.input.value);
+    const handleClick = (event) => {
+        props.onClick(event.target.value);
+    }
 
-        //event.preventDefault();
+    const handleSubmit = (event) => {
+        props.onSubmit(event.target.value);
+        event.preventDefault();
+        
+
     }
 
     const handleChange = (event) => {
         props.onChange(event.target.value);
-        //console.log(this.input.value);
 
-        event.preventDefault();
+        //event.preventDefault();
     }
 
     return (
-        <div>
+        <form onSubmit={handleSubmit}>
             <input
+                type="text"
                 placeholder="Insert new item"
                 onChange={handleChange}
             />
             <input
-                type="button"
+                type="submit"
                 value="Add"
-                onClick={handleClick}
             />
-        </div>
+        </form>
     );
 
 }

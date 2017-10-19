@@ -8,6 +8,13 @@ const FootballActions = {
             text,
         });
     },
+
+    deletePlayer(id) {
+        FootballDispatcher.dispatch({
+            type: FootballActionTypes.DELETE_PLAYER,
+            id,
+        });
+    },
 };
 
 export default FootballActions;

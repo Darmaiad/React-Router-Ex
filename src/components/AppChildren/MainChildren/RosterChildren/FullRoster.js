@@ -1,5 +1,7 @@
 import React from 'react';
 import NewItem from './../NewItem';
+import { Link } from 'react-router-dom';
+
 
 //const FullRoster = (props) => {
 
@@ -8,36 +10,62 @@ class FullRoster extends React.Component {
     super(props);
     this.state = {
       value: '',
-      players: this.props.players
+      roster: ''
     };
-      console.log("Full roster props")
-      console.log(this.props);
+
+
   }
 
-  handleClickFromChild = () => {
-    // console.log("Full roster state")
-    // console.log(this.state);
+  componentDidMount() {
+    // const players = this.props.players.map(p => (
+    //   <li key={p.number}>
+    //     <Link to={`/roster/${p.number}`}>{p.name}</Link>
+    //   </li>
+    // ));
+
+    //this.setState({ roster: players });
+
+    //console.log(this.state);
+
+  }
+
+  // handleClickFromChild = (e) => {
+  //   this.props.onItemAdd(val);
+  //   console.log(e);
+  // }
+
+  handleSubmitFromChild = (e) => {
     this.props.onItemAdd(this.state.value);
+    console.log("submitted!");
+    console.log(this.state);
   }
 
   handleChangeFromChild = (v) => {
-    //console.log(v);
-    this.setState({value: v});
+    console.log(v);
+    this.setState({ value: v });
+  }
+
+  handleDelete = (v) => {
+    this.props.onDeletePlayer(v)
   }
 
   render() {
     return (
       <div>
         <NewItem
-          onClick={this.handleClickFromChild}
+          onSubmit={this.handleSubmitFromChild}
           onChange={this.handleChangeFromChild}
         />
         <ul>
-        {this.props.players}
+          {[...this.props.players.values()].map(player => (
+            <li key={player.number}>
+              <Link to={`/roster/${player.number}`}>{player.name}</Link>
+              <button onClick={() => this.handleDelete(player.id)}>
+                X
+              </button>
+            </li>
+          ))}
         </ul>
-        {/* <ul key={}>
-          {this.props.players}
-        </ul> */}
       </div>
     );
   };
