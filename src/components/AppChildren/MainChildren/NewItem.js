@@ -2,21 +2,13 @@ import React from 'react';
 
 const NewItem = (props) => {
 
-    const handleClick = (event) => {
-        props.onClick(event.target.value);
-    }
-
     const handleSubmit = (event) => {
         props.onSubmit(event.target.value);
         event.preventDefault();
-        
-
     }
 
     const handleChange = (event) => {
         props.onChange(event.target.value);
-
-        //event.preventDefault();
     }
 
     return (

@@ -20,9 +20,6 @@ class FootballStore extends ReduceStore {
         switch (action.type) {
 
             case FootballActionTypes.DELETE_PLAYER:
-                console.log(action.id);
-
-                
                 return state.delete(action.id);
 
             case FootballActionTypes.INSERT_PLAYER:
@@ -33,18 +30,6 @@ class FootballStore extends ReduceStore {
                 }
 
                 const idObj = Counter.increment();
-                // const tempPlayer =  new PlayerModel({
-                //     number: id,
-                //     name: action.text,
-                //     position: "QB",
-                // });
-                // state.push( tempPlayer.returnObject() );
-
-                // state.players.push({
-                //     number: id,
-                //     name: action.text,
-                //     position: "QB",
-                // });
 
                 return state.set(idObj.id, new PlayerModel({
                     id: idObj.id,
@@ -52,8 +37,6 @@ class FootballStore extends ReduceStore {
                     name: action.text,
                     position: 'QB',
                 }));
-
-
 
             default:
                 return state;

@@ -2,9 +2,6 @@ import React from 'react';
 import NewItem from './../NewItem';
 import { Link } from 'react-router-dom';
 
-
-//const FullRoster = (props) => {
-
 class FullRoster extends React.Component {
   constructor(props) {
     super(props);
@@ -24,24 +21,13 @@ class FullRoster extends React.Component {
     // ));
 
     //this.setState({ roster: players });
-
-    //console.log(this.state);
-
   }
-
-  // handleClickFromChild = (e) => {
-  //   this.props.onItemAdd(val);
-  //   console.log(e);
-  // }
 
   handleSubmitFromChild = (e) => {
     this.props.onItemAdd(this.state.value);
-    console.log("submitted!");
-    console.log(this.state);
   }
 
   handleChangeFromChild = (v) => {
-    console.log(v);
     this.setState({ value: v });
   }
 

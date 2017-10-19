@@ -28,7 +28,6 @@ const Main = (props) => {
         <main>
             <Switch>
                 <Route exact path='/' component={Home} />
-                {/* <Route  path='/roster' component={Roster} /> */}
                 <Route  path='/roster' component={RosterContainer} />
                 {/* <Route  path='/roster' render={()=><Roster {...props}/>} /> */}
                 <Route path='/schedule' component={Schedule} />

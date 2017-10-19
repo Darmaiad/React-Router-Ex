@@ -1,6 +1,5 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
-import FullRosterToBeWrapped from './RosterChildren/FullRosterToBeWrapped';
 import FullRoster from './RosterChildren/FullRoster';
 import PlayerToBeWrapped from './RosterChildren/PlayerToBeWrapped';
 import RosterHOC from './RosterHOC';
@@ -14,9 +13,6 @@ const Roster = (props) => {
     //     PlayerAPI.all.bind(PlayerAPI),
     //     props
     // );
-
-    
-    console.log(props);
 
     const PlayerWrapped = RosterHOC (
         PlayerToBeWrapped,
