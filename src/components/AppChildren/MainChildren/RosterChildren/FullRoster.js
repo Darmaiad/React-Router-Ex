@@ -7,10 +7,7 @@ class FullRoster extends React.Component {
     super(props);
     this.state = {
       value: '',
-      roster: ''
     };
-
-
   }
 
   componentDidMount() {
@@ -36,6 +33,7 @@ class FullRoster extends React.Component {
   }
 
   render() {
+
     return (
       <div>
         <NewItem
@@ -46,6 +44,7 @@ class FullRoster extends React.Component {
           {[...this.props.players.values()].map(player => (
             <li key={player.number}>
               <Link to={`/roster/${player.number}`}>{player.name}</Link>
+              <p>{player.number}</p>
               <button onClick={() => this.handleDelete(player.id)}>
                 X
               </button>

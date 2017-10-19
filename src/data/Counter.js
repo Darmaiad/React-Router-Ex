@@ -6,9 +6,10 @@ let _counter = 7;
 const Counter = {
   increment() {
     //return 'id-' + String(_counter++);
+    _counter++;
     return ({
-      num: _counter + 1,
-      id: 'id-' + String(_counter++),
+      num: _counter,
+      id: 'id-' + String(_counter),
 
     });
   }
