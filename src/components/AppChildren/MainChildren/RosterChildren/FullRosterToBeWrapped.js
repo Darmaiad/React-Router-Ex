@@ -36,7 +36,7 @@ export default class FullRosterToBeWrapped extends React.Component {
     render() {
         const players = [...this.props.data].map(player => (
             <li key={player.number}>
-                <Link to={`/roster/${player.number}`}>{player.name}</Link>
+                <Link to={`/roster/${player.id}`}>{player.name}</Link>
                 <button onClick={() => this.handleDelete(player.id)}>X</button>
             </li>
         ));
