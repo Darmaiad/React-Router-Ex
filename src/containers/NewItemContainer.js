@@ -1,20 +1,20 @@
 import { Container } from 'flux/utils';
-import RosterStore from './../data/stores/RosterStore'
+import DraftStore from './../data/stores/DraftStore'
 import FootballActions from './../data/FootballActions'
-import Roster from './../components/AppChildren/MainChildren/Roster';
+import NewItem from './../shared/NewItem';
 
 function getStores() {
     return [
-        RosterStore,
+        DraftStore,
     ];
 }
 
 function getState() {
     return {
-        players: RosterStore.getState(),
+        players: DraftStore.getState(),
         onItemAdd: FootballActions.insertPlayer,
         onDeletePlayer: FootballActions.deletePlayer,
     }
 }
 
-export default Container.createFunctional(Roster, getStores, getState);
+export default Container.createFunctional(NewItem, getStores, getState);

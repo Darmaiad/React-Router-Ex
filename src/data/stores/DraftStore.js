@@ -1,26 +1,20 @@
 import Immutable from 'immutable';
 import { ReduceStore } from 'flux/utils';
-import FootballActionTypes from './FootballActionTypes';
-import FootballDispatcher from './FootballDispatcher';
-import PlayerModel from './PlayerModel';
-import Counter from './../utilities/Counter';
-import PlayerAPI from './PlayerApi';
+import FootballActionTypes from './../FootballActionTypes';
+import FootballDispatcher from './../FootballDispatcher';
+import PlayerModel from './../models/PlayerModel';
+import Counter from './../../utilities/Counter';
+import PlayerAPI from './../PlayerApi';
 
-class FootballStore extends ReduceStore {
+class DraftStore extends ReduceStore {
     constructor() {
         super(FootballDispatcher);
     }
 
     getInitialState() {
-        return Immutable.OrderedMap(
-            PlayerAPI.all().map((item) => (
-                    [item.id, new PlayerModel(item)]
-                )
-            )
-        );
+        return Immutable.OrderedMap;
     }
 
-    // The state here refers to the state.players in the container scope
     reduce(state, action) {
         switch (action.type) {
 
@@ -49,4 +43,4 @@ class FootballStore extends ReduceStore {
     }
 }
 
-export default new FootballStore();
+export default new DraftStore();
