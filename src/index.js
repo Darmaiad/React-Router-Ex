@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-//import AppContainer from './containers/AppContainer';
 import App from './components/App';
 import FootballActions from './data/FootballActions';
 import { BrowserRouter } from 'react-router-dom';

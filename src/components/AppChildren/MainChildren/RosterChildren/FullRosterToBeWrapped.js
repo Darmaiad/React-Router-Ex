@@ -1,8 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import FullRoster from './FullRoster';
 import NewItem from './../NewItem';
-
 
 export default class FullRosterToBeWrapped extends React.Component {
     constructor(props) {
@@ -13,48 +11,31 @@ export default class FullRosterToBeWrapped extends React.Component {
     }
 
     componentDidMount() {
-      console.log(this.props);
+        console.log("FullRoster2bWr")
+        console.log(this.props);
+        
     }
 
     handleSubmitFromChild = (e) => {
         this.props.onItemAdd(e);
-        console.log(e);
     }
-
-    // handleChangeFromChild = (v) => {
-    //     this.setState({ value: v });
-    // }
 
     handleDelete = (v) => {
         this.props.onDeletePlayer(v)
     }
 
-
-
-
-    // All 4 commented implementations are correct
+    // All 4 commented implementations are correct:
 
     //this.setState({players: players });
-
     //this.setState( {players} );
-
     // this.setState(function(prevState, props){
     //     return {players: players}
     //  });
-
     // this.setState(function(){
     //     return {players: players}
     //  });
 
-
-
-
     render() {
-        //console.log(this.props.data);
-
-        //return <FullRoster players2 = {this.state.roster} {...this.props} />
-        // return <FullRoster  {...this.props} />
-
         const players = [...this.props.data].map(player => (
             <li key={player.number}>
                 <Link to={`/roster/${player.number}`}>{player.name}</Link>
@@ -62,16 +43,13 @@ export default class FullRosterToBeWrapped extends React.Component {
             </li>
         ));
     
-
         return (
             <div>
                 <NewItem
                     onSubmit={this.handleSubmitFromChild}
-                    
                 />
                 <ul>
                     {players}
-
                 </ul>
             </div>
         );
