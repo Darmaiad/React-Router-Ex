@@ -26,7 +26,8 @@ const Roster = (props) => {
             <h2>Roster Page</h2>
             <Switch>
                 {/* <Route exact path='/roster' component={RosterWrapped}/> */}
-                <Route exact path='/roster' render={() => <FullRoster {...props} />} />
+                <Route exact path='/roster' render={() => <RosterWrapped {...props} />} />
+                {/* <Route exact path='/roster' render={() => <FullRoster {...props} />} /> */}
                 {/* <Route exact path='/roster:number' render={()=><Player {...props}  />}/> */}
 
                 <Route path='/roster/:number' component={PlayerWrapped} />

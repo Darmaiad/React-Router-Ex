@@ -1,22 +1,34 @@
 import React from 'react';
 
-const NewItem = (props) => {
+//const NewItem = (props) => {
+export default class NewItem extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            value: '',
+        };
+    }
+    
 
-    const handleSubmit = (event) => {
-        props.onSubmit(event.target.value);
+
+    handleSubmit = (event) => {
+        this.props.onSubmit(this.state.value);
         event.preventDefault();
     }
 
-    const handleChange = (event) => {
-        props.onChange(event.target.value);
+    handleChange = (event) => {
+        //props.onChange(event.target.value);
+        this.setState({ value: event.target.value });
     }
 
+    render () {
+
     return (
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={this.handleSubmit}>
             <input
                 type="text"
                 placeholder="Insert new item"
-                onChange={handleChange}
+                onChange={this.handleChange}
             />
             <input
                 type="submit"
@@ -25,6 +37,7 @@ const NewItem = (props) => {
         </form>
     );
 
+    }
+
 }
 
-export default NewItem;
