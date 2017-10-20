@@ -1,15 +1,11 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import NewItem from './../../../shared/NewItem';
+import PlayerRow from './FullRosterChildren/PlayerRow';
 
 const FullRosterToBeWrapped = (props) => {
 
     const handleSubmitFromChild = (v) => {
         props.onItemAdd(v);
-    }
-
-    const handleDelete = (v) => {
-        props.onDeletePlayer(v)
     }
 
     // All 4 commented implementations are correct:
@@ -25,9 +21,12 @@ const FullRosterToBeWrapped = (props) => {
 
     const players = [...props.data].map(player => (
         <li key={player.number}>
-            <Link to={`/roster/${player.id}`}>{player.name}</Link>
-            <button onClick={() => handleDelete(player.id)}>X</button>
+            <PlayerRow 
+                player = {player}
+                onDeletePlayer = {props.onDeletePlayer}
+            />
         </li>
+        
     ));
 
     return (

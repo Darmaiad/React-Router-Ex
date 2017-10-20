@@ -13,9 +13,7 @@ class RosterStore extends ReduceStore {
 
     getInitialState() {
         return Immutable.OrderedMap(
-            PlayerAPI.all().map((item) => (
-                    [item.id, new PlayerModel(item)]
-                )
+                PlayerAPI.all().map((item) => ( [item.id, new PlayerModel(item)] )
             )
         );
     }
@@ -24,24 +22,30 @@ class RosterStore extends ReduceStore {
     reduce(state, action) {
         switch (action.type) {
 
-            case FootballActionTypes.DELETE_PLAYER:
-                return state.delete(action.id);
-
+            
             case FootballActionTypes.INSERT_PLAYER:
+            
+            // Don't add Players with no text.
+            if (!action.text) {
+                return state;
+            }
+            
+            const idObj = Counter.increment();
+            
+            return state.set(idObj.id, new PlayerModel({
+                id: idObj.id,
+                number: idObj.num,
+                name: action.text,
+                position: 'QB',
+            }));
+            
+            case FootballActionTypes.EDIT_INPUT:
+            
+                return state.setIn([action.id, 'text'], action.text);
+            
+            case FootballActionTypes.DELETE_PLAYER:
 
-                // Don't add Players with no text.
-                if (!action.text) {
-                    return state;
-                }
-
-                const idObj = Counter.increment();
-
-                return state.set(idObj.id, new PlayerModel({
-                    id: idObj.id,
-                    number: idObj.num,
-                    name: action.text,
-                    position: 'QB',
-                }));
+                return state.delete(action.id);
 
             default:
                 return state;

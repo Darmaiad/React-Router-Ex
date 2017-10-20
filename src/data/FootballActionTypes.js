@@ -1,6 +1,9 @@
 const FootballActionTypes = {
   INSERT_PLAYER: 'INSERT_PLAYER',
   DELETE_PLAYER: 'DELETE_PLAYER',
+  EDIT_INPUT: 'EDIT_INPUT',
+  START_EDITING: 'START_EDITING',
+  STOP_EDITING: 'STOP_EDITING',
 };
 
 export default FootballActionTypes;
