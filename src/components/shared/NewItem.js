@@ -7,7 +7,7 @@ export default class NewItem extends React.Component {
             value: '',
         };
     }
-    
+
     handleSubmit = (event) => {
         this.props.onSubmit(this.state.value);
         event.preventDefault();
@@ -17,17 +17,17 @@ export default class NewItem extends React.Component {
         this.setState({ value: event.target.value });
     }
 
-    render () {
+    render() {
         return (
             <form onSubmit={this.handleSubmit}>
                 <input
                     type="text"
-                    placeholder="Insert new item"
+                    placeholder={`Insert new ${this.props.item}'s name`}
                     onChange={this.handleChange}
                 />
                 <input
                     type="submit"
-                    value="Add"
+                    value={`Add ${this.props.item.charAt(0).toUpperCase() + this.props.item.slice(1)} `}
                 />
             </form>
         );

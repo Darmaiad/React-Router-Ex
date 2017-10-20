@@ -1,7 +1,6 @@
 import { Container } from 'flux/utils';
 import FootballStore from './../data/FootballStore'
 import FootballActions from './../data/FootballActions'
-//import AppRoutingWrapper from './../components/AppRoutingWrapper';
 import Roster from './../components/AppChildren/MainChildren/Roster';
 
 function getStores() {

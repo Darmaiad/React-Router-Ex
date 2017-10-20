@@ -3,7 +3,7 @@ import { ReduceStore } from 'flux/utils';
 import FootballActionTypes from './FootballActionTypes';
 import FootballDispatcher from './FootballDispatcher';
 import PlayerModel from './PlayerModel';
-import Counter from './Counter';
+import Counter from './../utilities/Counter';
 import PlayerAPI from './PlayerApi';
 
 class FootballStore extends ReduceStore {
@@ -12,12 +12,12 @@ class FootballStore extends ReduceStore {
     }
 
     getInitialState() {
-        return Immutable.OrderedMap( 
-            PlayerAPI.all().map( (item) => (       
+        return Immutable.OrderedMap(
+            PlayerAPI.all().map((item) => (
                     [item.id, new PlayerModel(item)]
                 )
-            )  
-        );        
+            )
+        );
     }
 
     // The state here refers to the state.players in the container scope

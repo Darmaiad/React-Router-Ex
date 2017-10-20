@@ -12,6 +12,6 @@ ReactDOM.render(
   document.getElementById('root')
 );
 
-FootballActions.insertPlayer("anathemame an doulepsei");
-FootballActions.insertPlayer("oxi siga");
-FootballActions.insertPlayer("oooxi siga2");
+FootballActions.insertPlayer("Mock McMockerson");
+FootballActions.insertPlayer("Sample Sampleski");
+FootballActions.insertPlayer("Eig Eigenplayer");

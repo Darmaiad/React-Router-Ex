@@ -1,25 +1,15 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import NewItem from './../NewItem';
+import NewItem from './../../../shared/NewItem';
 
-export default class FullRosterToBeWrapped extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            value: '',
-        };
+const FullRosterToBeWrapped = (props) => {
+
+    const handleSubmitFromChild = (v) => {
+        props.onItemAdd(v);
     }
 
-    componentDidMount() {   
-        
-    }
-
-    handleSubmitFromChild = (e) => {
-        this.props.onItemAdd(e);
-    }
-
-    handleDelete = (v) => {
-        this.props.onDeletePlayer(v)
+    const handleDelete = (v) => {
+        props.onDeletePlayer(v)
     }
 
     // All 4 commented implementations are correct:
@@ -33,23 +23,24 @@ export default class FullRosterToBeWrapped extends React.Component {
     //     return {players: players}
     //  });
 
-    render() {
-        const players = [...this.props.data].map(player => (
-            <li key={player.number}>
-                <Link to={`/roster/${player.id}`}>{player.name}</Link>
-                <button onClick={() => this.handleDelete(player.id)}>X</button>
-            </li>
-        ));
-    
-        return (
-            <div>
-                <NewItem
-                    onSubmit={this.handleSubmitFromChild}
-                />
-                <ul>
-                    {players}
-                </ul>
-            </div>
-        );
-    }
+    const players = [...props.data].map(player => (
+        <li key={player.number}>
+            <Link to={`/roster/${player.id}`}>{player.name}</Link>
+            <button onClick={() => handleDelete(player.id)}>X</button>
+        </li>
+    ));
+
+    return (
+        <div>
+            <NewItem
+                onSubmit={handleSubmitFromChild}
+                item = {"player"}
+            />
+            <ul>
+                {players}
+            </ul>
+        </div>
+    );
 }
+
+export default FullRosterToBeWrapped

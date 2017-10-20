@@ -9,7 +9,7 @@ const Roster = (props) => {
     // Filter props to pass to HOC that will wrap the Roster
     const { players, ...actionsOnly } = props;
 
-    const RosterWrapped = RosterHOC (
+    const RosterWrapped = RosterHOC(
         FullRosterToBeWrapped,
         props.players.values.bind(props.players),
         actionsOnly

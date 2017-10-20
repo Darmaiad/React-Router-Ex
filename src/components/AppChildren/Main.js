@@ -16,7 +16,6 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom'
 import Home from './MainChildren/Home'
-// import Roster from './MainChildren/Roster'
 import RosterContainer from './../../containers/RosterContainer'
 import Schedule from './MainChildren/Schedule'
 import NoMatch from './NoMatch'
@@ -28,7 +27,7 @@ const Main = (props) => {
         <main>
             <Switch>
                 <Route exact path='/' component={Home} />
-                <Route  path='/roster' component={RosterContainer} />
+                <Route path='/roster' component={RosterContainer} />
                 {/* <Route  path='/roster' render={()=><Roster {...props}/>} /> */}
                 <Route path='/schedule' component={Schedule} />
                 <Route component={NoMatch} />
