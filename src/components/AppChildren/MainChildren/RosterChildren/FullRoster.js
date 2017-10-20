@@ -10,16 +10,6 @@ class FullRoster extends React.Component {
     };
   }
 
-  componentDidMount() {
-    // const players = this.props.players.map(p => (
-    //   <li key={p.number}>
-    //     <Link to={`/roster/${p.number}`}>{p.name}</Link>
-    //   </li>
-    // ));
-
-    //this.setState({ roster: players });
-  }
-
   handleSubmitFromChild = (e) => {
     this.props.onItemAdd(this.state.value);
   }
@@ -33,7 +23,6 @@ class FullRoster extends React.Component {
   }
 
   render() {
-
     return (
       <div>
         <NewItem
@@ -44,7 +33,6 @@ class FullRoster extends React.Component {
           {[...this.props.players.values()].map(player => (
             <li key={player.number}>
               <Link to={`/roster/${player.number}`}>{player.name}</Link>
-              <p>{player.number}</p>
               <button onClick={() => this.handleDelete(player.id)}>
                 X
               </button>
@@ -54,7 +42,6 @@ class FullRoster extends React.Component {
       </div>
     );
   };
-
 }
 
 export default FullRoster;
