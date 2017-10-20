@@ -10,9 +10,7 @@ export default class FullRosterToBeWrapped extends React.Component {
         };
     }
 
-    componentDidMount() {
-        console.log("FullRoster2bWr")
-        console.log(this.props);
+    componentDidMount() {   
         
     }
 
