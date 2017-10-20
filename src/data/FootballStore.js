@@ -12,7 +12,12 @@ class FootballStore extends ReduceStore {
     }
 
     getInitialState() {
-        return Immutable.OrderedMap();
+        return Immutable.OrderedMap( 
+            PlayerAPI.all().map( (item) => (       
+                    [item.id, new PlayerModel(item)]
+                )
+            )  
+        );        
     }
 
     // The state here refers to the state.players in the container scope
