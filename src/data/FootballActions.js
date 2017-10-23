@@ -26,16 +26,30 @@ const FootballActions = {
 
     startEditing(id) {
         FootballDispatcher.dispatch({
-          type: FootballActionTypes.START_EDITING,
-          id,
+            type: FootballActionTypes.START_EDITING,
+            id,
         });
-      },
-    
-      stopEditing() {
+    },
+
+    stopEditing() {
         FootballDispatcher.dispatch({
-          type: FootballActionTypes.STOP_EDITING,
+            type: FootballActionTypes.STOP_EDITING,
         });
-      },
+    },
+
+    updateDraft(text) {
+        FootballDispatcher.dispatch({
+            type: FootballActionTypes.UPDATE_DRAFT,
+            text,
+        });
+    },
+
+    saveDraft(text) {
+        FootballDispatcher.dispatch({
+            type: FootballActionTypes.SAVE_DRAFT,
+            text,
+        });
+    },
 };
 
 export default FootballActions;

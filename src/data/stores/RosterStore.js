@@ -21,27 +21,27 @@ class RosterStore extends ReduceStore {
     // The state here refers to the state.players in the container scope
     reduce(state, action) {
         switch (action.type) {
-
             
             case FootballActionTypes.INSERT_PLAYER:
             
-            // Don't add Players with no text.
-            if (!action.text) {
-                return state;
-            }
+                // Don't add Players with no text.
+                if (!action.text) {
+                    return state;
+                }
+                
+                const idObj = Counter.increment();
+                
+                return state.set(idObj.id, new PlayerModel({
+                    id: idObj.id,
+                    number: idObj.num,
+                    name: action.text,
+                    position: 'QB',
+                }));
             
-            const idObj = Counter.increment();
+            // case FootballActionTypes.EDIT_INPUT:
             
-            return state.set(idObj.id, new PlayerModel({
-                id: idObj.id,
-                number: idObj.num,
-                name: action.text,
-                position: 'QB',
-            }));
-            
-            case FootballActionTypes.EDIT_INPUT:
-            
-                return state.setIn([action.id, 'text'], action.text);
+            //     //return state.setIn([action.id, 'name'], action.text);
+            //     return action.text;
             
             case FootballActionTypes.DELETE_PLAYER:
 

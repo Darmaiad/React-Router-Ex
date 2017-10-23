@@ -23,10 +23,14 @@ const FullRosterToBeWrapped = (props) => {
         <li key={player.number}>
             <PlayerRow 
                 player = {player}
+                editing = {props.editing}
+                draftText = {props.draftText}
                 onDeletePlayer = {props.onDeletePlayer}
+                onStartEditing = {props.onStartEditing}
+                onStopEditing = {props.onStopEditing}
+                onEditInput = {props.onEditInput}
             />
         </li>
-        
     ));
 
     return (

@@ -4,6 +4,8 @@ const FootballActionTypes = {
   EDIT_INPUT: 'EDIT_INPUT',
   START_EDITING: 'START_EDITING',
   STOP_EDITING: 'STOP_EDITING',
+  SAVE_DRAFT: 'SAVE_DRAFT',
+  UPDATE_DRAFT: 'UPDATE_DRAFT',
 };
 
 export default FootballActionTypes;

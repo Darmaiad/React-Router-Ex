@@ -2,7 +2,7 @@ import { ReduceStore } from 'flux/utils';
 import FootballActionTypes from './../FootballActionTypes';
 import FootballDispatcher from './../FootballDispatcher';
 
-class PlayerEditStore extends ReduceStore {
+class PlayerNameDraftStore extends ReduceStore {
     constructor() {
         super(FootballDispatcher);
     }
@@ -13,14 +13,11 @@ class PlayerEditStore extends ReduceStore {
 
     reduce(state, action) {
         switch (action.type) {
-
-            case FootballActionTypes.START_EDITING:
-                console.log("Started editing: " + action.id);
-                return action.id;
-
-            case FootballActionTypes.STOP_EDITING:
-                console.log("Stopped editing");
+            case FootballActionTypes.ADD_DRAFT:
                 return '';
+
+            case FootballActionTypes.UPDATE_DRAFT:
+                return action.text;
 
             default:
                 return state;
@@ -28,4 +25,4 @@ class PlayerEditStore extends ReduceStore {
     }
 }
 
-export default new PlayerEditStore();
+export default new PlayerNameDraftStore();
