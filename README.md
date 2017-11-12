@@ -6,4 +6,6 @@ After I finished the [Flux tutorial](https://github.com/facebook/flux) available
 
 Both of the aforementioned tutorials are excellent and I cannot recommend them enough to anyone starting out with React.
 
-Finally, this project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
+Τhis project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
+
+I intend to continue to update this project, by adding new elements for me to tinker with.
