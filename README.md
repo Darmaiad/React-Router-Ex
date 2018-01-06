@@ -1,4 +1,4 @@
-# React-Router-Ex
+# React-Router Example
 
 A simple React project that started as an implementation of the React Router tutorial found in [this](https://medium.com/@pshrmn/a-simple-react-router-v4-tutorial-7f23ff27adf) Medium article. 
 
